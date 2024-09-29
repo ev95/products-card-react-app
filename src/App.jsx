@@ -1,4 +1,5 @@
 import { ProductsCard } from './components/ProductsCard/ProductsCard.jsx';
+import ProductPage from './components/ProductPage/ProductPage.jsx';
 import Products from './components/Products/Products.jsx'
 import { Header } from './components/Header/Header.jsx'
 import { Route, Routes } from 'react-router-dom';
@@ -7,7 +8,7 @@ import './App.css'
 
 
 function App(props) {
-  const [cartProducts, SetCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
 
   function handleAddProductToCart(product) {
     const existItem = cartProducts.find((prod) => prod.id === product.id);
@@ -17,14 +18,14 @@ function App(props) {
       existItem.total_price = parseFloat((existItem.price * existItem.quantity).toFixed(2));
       const extractProduct = cartProducts.filter((p) => p.id !== product.id);
       if (extractProduct.length > 0) {
-        SetCartProducts([
+        setCartProducts([
           ...cartProducts.filter((p) => p.id !== product.id),
           existItem
         ]);
       }
 
     } else {
-      SetCartProducts([
+      setCartProducts([
         ...cartProducts,
         product
       ]);
@@ -35,8 +36,13 @@ function App(props) {
     <>
       <Header cartProductsCount={cartProducts.length} />
       <Routes>
-        <Route path='/' element={<Products products_list={props.products} setProductToCart={handleAddProductToCart} />} />
+        <Route path='/' element={
+          <Products
+            products_list={props.products}
+            setProductToCart={handleAddProductToCart} />
+        } />
         <Route path='/cart' element={<ProductsCard cardProducts={cartProducts} />} />
+        <Route path='/product/:id' element={<ProductPage />} />
       </Routes>
     </>
   )

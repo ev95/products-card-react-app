@@ -1,7 +1,7 @@
 import Product from '../Product/Product.jsx';
 import { useState } from 'react'
 import './Products.css';
-import { Header } from '../Header/Header.jsx';
+
 
 function Products(props) {
 
@@ -28,7 +28,6 @@ function Products(props) {
         props.setProductToCart(product)
     }
 
-
     return (
         <div className="produsts">
             <h1>Products</h1>
@@ -36,7 +35,12 @@ function Products(props) {
                 {
                     products.map((product) => {
                         return (
-                            <Product key={product.id} product={product} onStateChange={handleProductStateChange} addProductToCart={handleAddToCard} />
+                            <Product
+                                key={product.id}
+                                product={product}
+                                onStateChange={handleProductStateChange}
+                                addProductToCart={handleAddToCard}
+                            />
                         )
                     })
                 }

@@ -62,3 +62,13 @@
   display: inline-block;
   width: 30px;
 }
+
+.show-details {
+  display: block;
+  background-color: #160066;
+  padding: 8px;
+  border-radius: 3px;
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+}

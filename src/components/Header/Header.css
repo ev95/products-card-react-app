@@ -23,11 +23,16 @@
   gap: 15px;
 }
 
-.header nav a {
+.header nav a,
+.header .logo a {
   color: white;
   text-decoration: none;
   font-size: 16px;
   margin: 0 10px;
+}
+
+.header .logo a {
+  font-size: 24px;
 }
 
 .header .cart-icon {

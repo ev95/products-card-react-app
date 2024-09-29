@@ -6,10 +6,12 @@ export function Header({ cartProductsCount }) {
     return (
         <header className="header">
             <div className='container'>
-                <div className="logo">My Shop</div>
+                <div className="logo">
+                    <NavLink to="/"> My Shop </NavLink>
+                </div>
                 <nav>
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="#">Products</NavLink>
+                    <NavLink to="/">Products</NavLink>
                     <NavLink to="#">About</NavLink>
                     <NavLink to="#">Contact</NavLink>
                     <NavLink to="/cart" className="cart-icon">
