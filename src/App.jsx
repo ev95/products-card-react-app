@@ -14,6 +14,7 @@ function App(props) {
 
     if (existItem) {
       existItem.quantity++;
+      existItem.total_price = parseFloat((existItem.price * existItem.quantity).toFixed(2));
       const extractProduct = cartProducts.filter((p) => p.id !== product.id);
       if (extractProduct.length > 0) {
         SetCartProducts([

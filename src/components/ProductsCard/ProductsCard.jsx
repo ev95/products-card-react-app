@@ -39,7 +39,7 @@ export function ProductsCard({ cardProducts }) {
         <div className="cart-container">
             <h1>Shopping Cart</h1>
             {
-                products.map((product) => {
+                products.map((product) => (
                     <div className="cart-item" key={product.id}>
                         <img src={product.title} alt="Product Image" className="product-image" />
                         <div className="product-details">
@@ -47,16 +47,16 @@ export function ProductsCard({ cardProducts }) {
                             <p className="description">{product.description.slice(0, 100)}..</p>
                             <div className="quantity-container">
                                 <button className="quantity-btn">-</button>
-                                <span className="quantity">1</span>
+                                <span className="quantity">{product.quantity}</span>
                                 <button className="quantity-btn">+</button>
                             </div>
                         </div>
-                        <div className="product-price">{product.price}</div>
+                        <div className="product-price">{product.total_price}</div>
                         <div className="remove-item">
                             <button>Remove</button>
                         </div>
                     </div>
-                })
+                ))
             }
 
             <div className="cart-total">
