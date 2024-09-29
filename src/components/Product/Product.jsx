@@ -15,7 +15,7 @@ export default function Product(props) {
         <div className="product-item">
             <img src={product.image} alt="Product 1" />
             <h5>{product.title}</h5>
-            <div className="price">${product.total_price}</div>
+            <div className="price">${product.price}</div>
             {
                 showDetails && <p className='product-desc'>{product.description.slice(0, 150)}...</p>
             }

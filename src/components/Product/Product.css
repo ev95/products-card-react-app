@@ -19,15 +19,21 @@
   object-fit: contain;
   border-radius: 8px 8px 0 0;
 }
+
 .product-item h3 {
   margin: 15px 0 10px;
   font-size: 18px;
   color: #333;
 }
+
 .product-item p {
   margin: 0;
   color: #666;
   font-size: 14px;
+}
+
+.remove-item {
+  margin-left: 15px;
 }
 
 .product-item p.product-desc {

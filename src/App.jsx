@@ -1,13 +1,13 @@
+import { ProductsCard } from './components/ProductsCard/ProductsCard.jsx';
 import Products from './components/Products/Products.jsx'
 import { Header } from './components/Header/Header.jsx'
-import './App.css'
+import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
-import { ProductsCard } from './components/ProductsCard/ProductsCard.jsx';
+import './App.css'
 
 
 function App(props) {
   const [cartProducts, SetCartProducts] = useState([]);
-  const [showModal, SetShowModal] = useState(false);
 
   function handleAddProductToCart(product) {
     const existItem = cartProducts.find((prod) => prod.id === product.id);
@@ -33,9 +33,11 @@ function App(props) {
 
   return (
     <>
-      <Header showModal={() => SetShowModal(!showModal)} cartProducts={cartProducts} />
-      {showModal && <ProductsCard cardProducts={cartProducts} />}
-      <Products products_list={props.products} setProductToCart={handleAddProductToCart} />
+      <Header cartProductsCount={cartProducts.length} />
+      <Routes>
+        <Route path='/' element={<Products products_list={props.products} setProductToCart={handleAddProductToCart} />} />
+        <Route path='/cart' element={<ProductsCard cardProducts={cartProducts} />} />
+      </Routes>
     </>
   )
 }
